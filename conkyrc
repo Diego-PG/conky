@@ -1,0 +1,53 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+-- Author: Diego Prieto García
+
+conky.config = {
+    alignment = 'top_left',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = '17F018',
+    default_outline_color = '17F018',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=12',
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    double_buffer = true,
+    gap_x = 0,
+    gap_y = 24,
+    xinerama_head = 1,
+    color1 = '09B809',
+    pad_percents =  '2'
+}
+
+conky.text = [[
+${alignc}${scroll 25 3 You are using $nodename. Have a nice day! ;)}
+$hr
+${color grey}CPU Usage:$color ${if_match ${cpu cpu0}<10} ${endif}${cpu cpu0}% ${cpubar 4,80} | ${color grey}Name              PID    CPU%   MEM%${color} |
+${color grey}Frequency (in MHz):$color$freq | ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1} | ${color grey}RAM  :$color $memperc% ${membar 6,114}
+${color grey}Frequency (in GHz):$color$freq_g | ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2} | ${color grey}Swap :$color $swapperc% ${swapbar 6,114}
+${color grey}Process:$color $processes ${color grey}Running:$color $running_processes | ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3} |
+$hr
+${color grey}File systems:$color                                          |${color grey} Network:
+     /     $color${fs_used /}/${fs_size /} ${fs_bar 6,280 /} |
+ ${color grey}almacen1 $color${fs_used /mnt/almacen1}/${fs_size /mnt/almacen1} ${fs_bar 6,280 /mnt/almacen1} | ${color grey}Up:$color ${upspeed eno1} ${color grey} - Down:$color ${downspeed eno1}
+ ${color grey}almacen2 $color${fs_used /mnt/almacen2}/${fs_size /mnt/almacen2} ${fs_bar 6,280 /mnt/almacen2} |
+$hr
+]]
