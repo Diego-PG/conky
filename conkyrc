@@ -41,8 +41,8 @@ conky.text = [[
 ${alignc}${scroll 25 3 You are using $nodename. Have a nice day! ;)}
 $hr
 ${color grey}CPU Usage:$color ${if_match ${cpu cpu0}<10} ${endif}${cpu cpu0}% ${cpubar 4,80} | ${color grey}Name              PID    CPU%   MEM%${color} |
-${color grey}Frequency (in MHz):$color$freq | ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1} | ${color grey}RAM  :$color $memperc% ${membar 6,114}
-${color grey}Frequency (in GHz):$color$freq_g | ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2} | ${color grey}Swap :$color $swapperc% ${swapbar 6,114}
+${color grey}Frequency:$color     $freq_g GHz | ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1} | ${color grey}RAM  :$color $memperc% ${membar 6,114}
+${color grey}Temperature:$color    ${exec sensors | grep 'Physical id 0' | cut -c18-21} ºC | ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2} | ${color grey}Swap :$color $swapperc% ${swapbar 6,114}
 ${color grey}Process:$color $processes ${color grey}Running:$color $running_processes | ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3} |
 $hr
 ${color grey}File systems:$color                                          |${color grey} Network:
